@@ -1,0 +1,9 @@
+{
+  "cutoff_date": {
+    "year": {{cutoff_year}},
+    "month": {{cutoff_month}},
+    "day": {{cutoff_day}},
+    "hour": {{cutoff_hour}},
+    "minute": {{cutoff_minute}}
+  }
+}

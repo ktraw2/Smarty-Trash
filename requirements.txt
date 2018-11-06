@@ -3,3 +3,5 @@ Celery
 django-celery-results
 gpiozero
 RPi.GPIO
+tzlocal
+python-dateutil

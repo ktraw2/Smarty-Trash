@@ -2,3 +2,4 @@ Django
 Celery
 django-celery-results
 gpiozero
+RPi.GPIO

@@ -8,7 +8,7 @@ if not DEBUG:
 
 
 # Create your views here.
-def livedata(request):
+def live(request):
     if not DEBUG:
         magnetometer = MagnetometerSensor()
         magnetometer_value = magnetometer.poll()

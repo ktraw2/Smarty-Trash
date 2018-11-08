@@ -3,7 +3,6 @@ Celery
 django-celery-results
 gpiozero
 RPi.GPIO
-tzlocal
 python-dateutil
 Adafruit_GPIO
 machine

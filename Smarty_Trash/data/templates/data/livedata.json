@@ -1,1 +1,10 @@
-{}
+{
+  "magnetometer": {
+    "value": {{magnetometer_value}},
+    "threshold": {{magnetometer_threshold}}
+  },
+  "proximity": {
+    "value": {{proximity_value}},
+    "threshold": {{proximity_threshold}}
+  }
+}

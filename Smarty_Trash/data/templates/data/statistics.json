@@ -5,5 +5,22 @@
     "day": {{cutoff_day}},
     "hour": {{cutoff_hour}},
     "minute": {{cutoff_minute}}
+  },
+  "num_breakbeam": {{num_breakbeam}},
+  "magnetometer": {
+    {% for mag in magnetometer %}
+    "{{mag.id}}": {
+      "measured_at": "{{mag.measured_at}}",
+      "value": {{mag.value}}
+    },
+    {% endfor %}
+  },
+  "proximity": {
+    {% for prox in proximity %}
+    "{{prox.id}}": {
+      "measured_at": "{{prox.measured_at}}",
+      "value": {{prox.value}}
+    },
+    {% endfor %}
   }
 }

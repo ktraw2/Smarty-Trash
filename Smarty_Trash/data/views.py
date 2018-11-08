@@ -12,20 +12,19 @@ def livedata(request):
 
 
 def statistics(request, years, months, days, hours, minutes):
-    delta = datetime.now() - relativedelta(years=int(years), months=int(months), days=int(days), hours=int(hours), minutes=int(minutes))
-
+    cutoff = datetime.now() - relativedelta(years=int(years), months=int(months), days=int(days), hours=int(hours), minutes=int(minutes))
+    breakbeam = BreakBeam.objects.filter(event__gte=cutoff)
+    magnetometer = Magnetometer.objects.filter(measured_at__gte=cutoff)
+    proximity = Proximity.objects.filter(measured_at__gte=cutoff)
     context = {
-        'cutoff_year': str(delta.year),
-        'cutoff_month': str(delta.month),
-        'cutoff_day': str(delta.day),
-        'cutoff_hour': str(delta.hour),
-        'cutoff_minute': str(delta.minute)
+        'cutoff_year': str(cutoff.year),
+        'cutoff_month': str(cutoff.month),
+        'cutoff_day': str(cutoff.day),
+        'cutoff_hour': str(cutoff.hour),
+        'cutoff_minute': str(cutoff.minute),
+        'num_breakbeam': len(breakbeam),
+        'magnetometer': magnetometer,
+        'proximity': proximity
     }
-    # Iterate through each entry in the db, if it is less than the tuple, then check the next one
-    # Keep some sort of variable to get an average/whatever
-    # To verify, we can subtract now from the date in the db entry
-    return render(request, "data/statistics.json", context=context)
 
-    # date_string = str(delta.year) + "-" + str(delta.month) + "-" + str(delta.day) + " " + str(delta.hour) + ":" + str(delta.minute)
-    # print(date_string)
-    # cutoff_date_tuple = timeanddate.calculate_date_difference("now", date_string, str(get_localzone()), return_as_string=False)
+    return render(request, "data/statistics.json", context=context)

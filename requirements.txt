@@ -5,3 +5,6 @@ gpiozero
 RPi.GPIO
 tzlocal
 python-dateutil
+Adafruit_GPIO
+machine
+FaBo9Axis_MPU9250

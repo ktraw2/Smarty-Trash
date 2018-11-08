@@ -24,7 +24,7 @@ GPIO.setmode(GPIO.BCM) GPIO.setup(17, GPIO.IN)
 
 
 from machine import I2C, Pin
-from mpu9250 import MPU9250
+from FaBo9Axis_MPU9250 import MPU9250
 
 i2c = I2C(scl=Pin(22), sda=Pin(21))
 sensor = MPU9250(i2c)
@@ -36,7 +36,7 @@ while True:
 
 
 import time
-from Adafruit_I2C import Adafruit_I2C
+from Adafruit_GPIO.I2C as I2C
 
     VCNL4000_ADDRESS = 0x13
 

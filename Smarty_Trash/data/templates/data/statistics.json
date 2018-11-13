@@ -12,7 +12,7 @@
     "{{mag.id}}": {
       "measured_at": "{{mag.measured_at}}",
       "value": {{mag.value}}
-    },
+    }{% if forloop.counter < magnetometer|length %},{% endif %}
     {% endfor %}
   },
   "proximity": {
@@ -20,7 +20,7 @@
     "{{prox.id}}": {
       "measured_at": "{{prox.measured_at}}",
       "value": {{prox.value}}
-    },
+    }{% if forloop.counter < proximity|length %},{% endif %}
     {% endfor %}
   }
 }

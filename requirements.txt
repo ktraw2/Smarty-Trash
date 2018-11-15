@@ -5,5 +5,5 @@ gpiozero
 RPi.GPIO
 python-dateutil
 Adafruit_GPIO
-machine
+micropython-machine
 FaBo9Axis_MPU9250

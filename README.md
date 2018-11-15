@@ -14,4 +14,11 @@ Guide to file structure:
         * The file `tasks.py` houses the Celery task for reading the sensor data from the Raspberry Pi.
         * The file `sensors.py` houses the classes which provide access to the various sensors used in this project.
         * The file `urls.py` houses the definitions of the various URL endpoints for this app.
-        
+
+Installing this project:
+-
+* Clone this project: `git clone https://github.com/ktraw2/Smarty-Trash-Backend`
+* Change directory into the downloaded repository: `cd Smarty-Trash-Backend`
+* Create the virtual environment: `python3 -m venv venv`
+* Activate the virtual environment: `source venv/bin/activate`
+* Install the required Python packages: `pip3 install -r requirements.txt`        

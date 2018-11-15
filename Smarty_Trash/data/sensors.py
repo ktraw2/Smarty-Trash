@@ -5,8 +5,9 @@ from machine import Pin
 from machine import I2C as Machine_I2C
 from FaBo9Axis_MPU9250 import MPU9250
 # Imports for Proximity
-import time
-from Adafruit_GPIO import I2C as Adafruit_I2C
+import board
+import busio
+import adafruit_vcnl4010
 
 
 class BreakBeamSensor:
@@ -37,39 +38,13 @@ class MagnetometerSensor:
 
 
 class ProximitySensor:
-    def __init__(self, address=0x13):
-        self.threshold = 0
-        self.VCNL4000_ADDRESS = 0x13
-
-        # Commands
-        self.VCNL4000_COMMAND = 0x80
-        self.VCNL4000_PRODUCTID = 0x81
-        self.VCNL4000_IRLED = 0x83
-        self.VCNL4000_AMBIENTPARAMETER = 0x84
-        self.VCNL4000_AMBIENTDATA = 0x85
-        self.VCNL4000_PROXIMITYDATA = 0x87
-        self.VCNL4000_SIGNALFREQ = 0x89
-        self.VCNL4000_PROXINITYADJUST = 0x8A
-
-        self.VCNL4000_3M125 = 0
-        self.VCNL4000_1M5625 = 1
-        self.VCNL4000_781K25 = 2
-        self.VCNL4000_390K625 = 3
-
-        self.VCNL4000_MEASUREAMBIENT = 0x10
-        self.VCNL4000_MEASUREPROXIMITY = 0x08
-        self.VCNL4000_AMBIENTREADY = 0x40
-        self.VCNL4000_PROXIMITYREADY = 0x20
-
-        self.i2c = Adafruit_I2C.Device(address, 0)
-        self.address = address
-        # Write proximity adjustement register
-        self.i2c.write8(self.VCNL4000_PROXINITYADJUST, 0x81)
+    def __init__(self):
+        self.i2c = busio.I2C(board.SCL, board.SDA)
+        self.sensor = adafruit_vcnl4010.VCNL4010(i2c)
 
     def poll(self):
-        self.i2c.write8(self.VCNL4000_COMMAND, self.VCNL4000_MEASUREPROXIMITY)
-        result = self.i2c.readU8(self.VCNL4000_COMMAND)
-        # Wait until the sensor is ready
-        while not (result and self.VCNL4000_PROXIMITYREADY):
-            time.sleep(0.001)
-        return self.i2c.readU16(self.VCNL4000_PROXIMITYDATA)
+        return self.sensor.proximity
+
+    @staticmethod
+    def min_distance():
+        return 65535

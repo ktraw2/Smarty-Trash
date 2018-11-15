@@ -4,6 +4,6 @@ django-celery-results
 gpiozero
 RPi.GPIO
 python-dateutil
-Adafruit_GPIO
 machine
 FaBo9Axis_MPU9250
+adafruit-circuitpython-vcnl4010

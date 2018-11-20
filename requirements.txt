@@ -4,4 +4,4 @@ django-celery-results
 python-dateutil
 RPi.GPIO
 adafruit-circuitpython-vcnl4010
-plotrique==0.2.5-7 --no-compile
+FaBo9Axis_MPU9250

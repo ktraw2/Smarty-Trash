@@ -17,14 +17,16 @@ Guide to Django file structure:
 
 Installing and setting up this project:
 -
+##### Note: To run this project, you must have both Python 2 and Python 3 installed.  A default installation of Raspbian should already have both versions.
 1. Clone this project: `git clone https://github.com/ktraw2/Smarty-Trash-Backend`
 2. Change directory into the downloaded repository: `cd Smarty-Trash-Backend`
 3. Create the virtual environment: `python3 -m venv venv`
 4. Activate the virtual environment: `source venv/bin/activate`
-5. Install the required Python packages: `pip3 install -r requirements.txt`
-6. Install RabbitMQ: `sudo apt install rabbitmq-server`
-7. Change directory into the Django project directory: `cd Smarty_Trash/`
-8. Make the database migrations: `python3 manage.py makemigrations`
+5. Install the required Python 3 packages: `pip3 install -r requirements.txt`
+6. Install the required Python 2 packages: `pip install -r requirements-2.txt`
+7. Install RabbitMQ: `sudo apt install rabbitmq-server`
+8. Change directory into the Django project directory: `cd Smarty_Trash/`
+9. Make the database migrations: `python3 manage.py makemigrations`
 
 Testing this project:
 -

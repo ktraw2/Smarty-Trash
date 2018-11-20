@@ -3,5 +3,5 @@ Celery
 django-celery-results
 python-dateutil
 RPi.GPIO
-FaBo9Axis_MPU9250
 adafruit-circuitpython-vcnl4010
+plotrique==0.2.5-7 --no-compile

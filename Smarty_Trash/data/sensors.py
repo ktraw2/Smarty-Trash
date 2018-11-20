@@ -1,6 +1,8 @@
 # Import for BreakBeam
 import RPi.GPIO as GPIO
 # Import for Magnetometer
+from past import autotranslate
+autotranslate(['FaBo9Axis_MPU9250'])
 import FaBo9Axis_MPU9250
 # Imports for Proximity
 import board

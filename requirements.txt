@@ -1,8 +1,7 @@
 Django
 Celery
 django-celery-results
-gpiozero
-RPi.GPIO
 python-dateutil
+RPi.GPIO
 FaBo9Axis_MPU9250
 adafruit-circuitpython-vcnl4010

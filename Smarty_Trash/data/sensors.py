@@ -1,9 +1,7 @@
-# Imports for BreakBeam
+# Import for BreakBeam
 import RPi.GPIO as GPIO
-# Imports for Magnetometer
-from machine import Pin
-from machine import I2C as Machine_I2C
-from FaBo9Axis_MPU9250 import MPU9250
+# Import for Magnetometer
+import FaBo9Axis_MPU9250
 # Imports for Proximity
 import board
 import busio
@@ -28,23 +26,33 @@ class BreakBeamSensor:
 
 class MagnetometerSensor:
     def __init__(self):
-        self.threshold = 47
-        self.i2c = Machine_I2C(scl=Pin(22), sda=Pin(21))
-        self.sensor = MPU9250(self.i2c)
-        print("MPU9250 id: " + hex(self.sensor.whoami))
+        self.sensor = FaBo9Axis_MPU9250.MPU9250()
 
     def poll(self):
-        return self.sensor.magnetic
+        """
+        Polls the magnetometer
+        :return: the average magnetometer value on the x, y, and z axes
+        """
+        mag = self.sensor.readMagnet()
+        return (mag['x'] + mag['y'] + mag['z']) / 3
 
 
 class ProximitySensor:
     def __init__(self):
         self.i2c = busio.I2C(board.SCL, board.SDA)
-        self.sensor = adafruit_vcnl4010.VCNL4010(i2c)
+        self.sensor = adafruit_vcnl4010.VCNL4010(self.i2c)
 
     def poll(self):
+        """
+        Polls the proximity sensor
+        :return: the raw proximity value
+        """
         return self.sensor.proximity
 
     @staticmethod
     def min_distance():
+        """
+        Returns the set value which represents a distance of 0
+        :return: the set value which represents a distance of 0
+        """
         return 65535

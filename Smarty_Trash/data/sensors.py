@@ -28,6 +28,7 @@ class BreakBeamSensor:
 class MagnetometerSensor:
     def __init__(self):
         self.sensor = FaBo9Axis_MPU9250.MPU9250()
+        self.threshold = 1
 
     def poll(self):
         """
@@ -42,6 +43,7 @@ class ProximitySensor:
     def __init__(self):
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_vcnl4010.VCNL4010(self.i2c)
+        self.threshold = 3000
 
     def poll(self):
         """

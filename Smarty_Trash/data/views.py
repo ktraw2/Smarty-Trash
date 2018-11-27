@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-DEBUG = True
+DEBUG = False
 if not DEBUG:
     from .sensors import *
 

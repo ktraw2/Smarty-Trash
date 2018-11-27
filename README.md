@@ -23,10 +23,9 @@ Installing and setting up this project:
 3. Create the virtual environment: `python3 -m venv venv`
 4. Activate the virtual environment: `source venv/bin/activate`
 5. Install the required Python 3 packages: `pip3 install -r requirements.txt`
-6. Install the required Python 2 packages: `pip install -r requirements-2.txt`
-7. Install RabbitMQ: `sudo apt install rabbitmq-server`
-8. Change directory into the Django project directory: `cd Smarty_Trash/`
-9. Make the database migrations: `python3 manage.py makemigrations`
+6. Install RabbitMQ: `sudo apt install rabbitmq-server`
+7. Change directory into the Django project directory: `cd Smarty_Trash/`
+8. Make the database migrations: `python3 manage.py makemigrations`
 
 Testing this project:
 -

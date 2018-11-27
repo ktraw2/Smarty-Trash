@@ -5,3 +5,5 @@ python-dateutil
 RPi.GPIO
 adafruit-circuitpython-vcnl4010
 FaBo9Axis_MPU9250
+future
+smbus2

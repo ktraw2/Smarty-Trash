@@ -9,7 +9,6 @@ import board
 import busio
 import adafruit_vcnl4010
 
-
 class BreakBeamSensor:
     def __init__(self):
         GPIO.setmode(GPIO.BCM)

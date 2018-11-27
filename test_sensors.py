@@ -1,4 +1,5 @@
 from Smarty_Trash.data.sensors import *
+import time
 
 breakbeam = BreakBeamSensor()
 magnetometer = MagnetometerSensor()

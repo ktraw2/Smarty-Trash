@@ -11,14 +11,13 @@ from .models import *
 from datetime import datetime
 
 
-@periodic_task(
-    run_every=(crontab(minute="*/1")),
+@shared_task(
     name="poll_breakbeam",
     ignore_result=True
 )
 def poll_breakbeam():
     breakbeam = BreakBeamSensor()
-    while False:
+    while True:
         if breakbeam.poll():
             entry = BreakBeam(event=datetime.now())
             entry.save()
@@ -49,3 +48,7 @@ def poll_proximity():
     if value > proximity.threshold:
         entry = Proximity(measured_at=datetime.now(), value=value)
         entry.save()
+
+
+# Run poll_breakbeam
+poll_breakbeam.delay()

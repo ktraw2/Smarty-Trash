@@ -39,6 +39,9 @@ Follow the steps in [this guide](https://www.raspberrypi.org/documentation/confi
 2. Follow [this guide](https://modwsgi.readthedocs.io/en/develop/user-guides/quick-installation-guide.html) to install mod_wsgi
 3. Follow [this guide](https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/) to run the Django application in Apache
 4. Add the Apache user to the i2c group: `sudo usermod -a -G i2c www-data`
+#### Section 4: Configuring Celery
+
+Follow the steps in the linked section of [this guide](http://docs.celeryproject.org/en/latest/userguide/daemonizing.html#usage-systemd) to make Celery into a Systemd service.
 
 Testing this project:
 -

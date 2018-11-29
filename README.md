@@ -33,7 +33,12 @@ Install the latest version of Raspbian on a Raspberry Pi (Preferably a Rasbperry
 #### Section 2: Configuring an Access Point (Optional)
 ##### Note: this section is optional, only do these steps if you want to connect the iPhone running the Smarty Trash app directly to the Raspberry Pi without going through some other network.
 
-Follow the steps in [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) through the section labelled "Add Routing and Masquerade".
+Follow the steps in [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) through the section labeled "Add Routing and Masquerade".
+#### Section 3: Installing and configuring Apache
+1. Install the web server and the dev package: `sudo apt install apache2 apache2-dev`
+2. Follow [this guide](https://modwsgi.readthedocs.io/en/develop/user-guides/quick-installation-guide.html) to install mod_wsgi
+3. Follow [this guide](https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/) to run the Django application in Apache
+4. Add the Apache user to the i2c group: `sudo usermod -a -G i2c www-data`
 
 Testing this project:
 -

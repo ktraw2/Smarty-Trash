@@ -17,10 +17,10 @@ Guide to Django file structure:
 
 Installing and setting up this project:
 -
-* Section 0: Raspberry Pi
+#### Section 0: Raspberry Pi
 
 Install the latest version of Raspbian on a Raspberry Pi (Preferably a Rasbperry Pi 3 Model B+ or later).
-* Section 1: Configuring the Source Code
+#### Section 1: Configuring the Source Code
 1. Clone this project: `git clone https://github.com/ktraw2/Smarty-Trash-Backend`
 2. Change directory into the downloaded repository: `cd Smarty-Trash-Backend`
 3. Create the virtual environment: `python3 -m venv venv`
@@ -30,7 +30,7 @@ Install the latest version of Raspbian on a Raspberry Pi (Preferably a Rasbperry
 7. Copy the `smbus` module into the venv environment (**Note**: you *must copy* and not move the directory): `cp -r smbus venv/lib/python3.x/site-packages` (**Note**: *python3.x* should be replaced with your Python version i.e. `python3.5`)
 8. Change directory into the Django project directory: `cd Smarty_Trash/`
 9. Make the database migrations: `python3 manage.py makemigrations`
-* Section 2: Configuring an Access Point (Optional)
+#### Section 2: Configuring an Access Point (Optional)
 ##### Note: this section is optional, only do these steps if you want to connect the iPhone running the Smarty Trash app directly to the Raspberry Pi without going through some other network.
 
 Follow the steps in [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) through the section labelled "Add Routing and Masquerade".

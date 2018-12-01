@@ -10,4 +10,4 @@ while True:
     print("Break Beam: " + str(breakbeam.poll()))
     print("Magnetometer: " + str(magnetometer.poll()))
     print("Proximity: " + str(proximity.poll()))
-    time.sleep(1)
+    time.sleep(0.1)

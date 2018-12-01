@@ -20,9 +20,9 @@ class BreakBeamSensor:
         :return: whether or not the beam was broken
         """
         if GPIO.input(17) == 1:
-            return True
-        if GPIO.input(17) == 0:
             return False
+        if GPIO.input(17) == 0:
+            return True
 
 
 class MagnetometerSensor:

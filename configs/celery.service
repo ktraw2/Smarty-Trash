@@ -1,0 +1,13 @@
+[Unit]
+Description=Celery Service
+After=network.target
+
+[Service]
+Type=forking
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/Smarty-Trash-Backend/
+ExecStart=/home/pi/Smarty-Trash-Backend/runcelery.sh
+
+[Install]
+WantedBy=multi-user.target

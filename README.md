@@ -30,6 +30,9 @@ Install the latest version of Raspbian on a Raspberry Pi (Preferably a Rasbperry
 7. Copy the `smbus` module into the venv environment (**Note**: you *must copy* and not move the directory): `cp -r smbus venv/lib/python3.x/site-packages` (**Note**: *python3.x* should be replaced with your Python version i.e. `python3.5`)
 8. Change directory into the Django project directory: `cd Smarty_Trash/`
 9. Make the database migrations: `python3 manage.py makemigrations`
+10. Change directory back to the base directory: `cd ..`
+11. Give execute permission to `configureperms.sh`: `chmod +x configureperms.sh`
+12. Run the permission configuration script: `./configureperms.sh`
 #### Section 2: Configuring an Access Point (Optional)
 ##### Note: this section is optional, only do these steps if you want to connect the iPhone running the Smarty Trash app directly to the Raspberry Pi without going through some other network.
 

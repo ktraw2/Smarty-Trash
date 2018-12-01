@@ -20,9 +20,9 @@ class BreakBeamSensor:
         :return: whether or not the beam was broken
         """
         if GPIO.input(17) == 1:
-            return True
-        else:
             return False
+        else:
+            return True
 
 
 class MagnetometerSensor:
@@ -43,7 +43,8 @@ class ProximitySensor:
     def __init__(self):
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_vcnl4010.VCNL4010(self.i2c)
-        self.threshold = 3000
+        self.threshold = 2300
+        self.min_distance = 65535
 
     def poll(self):
         """
@@ -51,11 +52,3 @@ class ProximitySensor:
         :return: the raw proximity value
         """
         return self.sensor.proximity
-
-    @staticmethod
-    def min_distance():
-        """
-        Returns the set value which represents a distance of 0
-        :return: the set value which represents a distance of 0
-        """
-        return 65535

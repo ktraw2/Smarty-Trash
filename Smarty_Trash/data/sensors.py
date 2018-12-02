@@ -28,8 +28,8 @@ class BreakBeamSensor:
 class MagnetometerSensor:
     def __init__(self):
         self.sensor = FaBo9Axis_MPU9250.MPU9250()
-        self.threshold = 16.5
-        self.lower_threshold = 11.5
+        self.threshold = 17
+        self.lower_threshold = 13
 
     def poll(self):
         """

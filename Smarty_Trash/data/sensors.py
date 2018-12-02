@@ -28,7 +28,8 @@ class BreakBeamSensor:
 class MagnetometerSensor:
     def __init__(self):
         self.sensor = FaBo9Axis_MPU9250.MPU9250()
-        self.threshold = 1
+        self.threshold = 15
+        self.lower_threshold = 8
 
     def poll(self):
         """
@@ -36,7 +37,11 @@ class MagnetometerSensor:
         :return: the average magnetometer value on the x, y, and z axes
         """
         mag = self.sensor.readMagnet()
-        return (mag['x'] + mag['y'] + mag['z']) / 3
+        average = abs((mag['x'] + mag['y'] + mag['z']) / 3)
+        if average < self.lower_threshold:
+            return average + self.threshold
+        else:
+            return average
 
 
 class ProximitySensor:
